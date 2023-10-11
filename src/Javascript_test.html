@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+
+    <body>
+
+        <h1>JavaScript example 1</h1>
+
+        <button
+          type="button"
+          onclick="window.alert('Hello, World!')"
+         >
+            Click me to generate a Window Alert dialog.
+        </button>
+
+        <p id="demo_0">
+        </p>
+
+        <p id="demo_1">
+        </p>
+
+        <script id="poop">
+
+            /* This is a Javascript language script.
+             *
+             * It should execute an external command.
+             */
+
+            var value;
+
+
+            value = window.location.href;
+
+            // exec('dir');
+
+            document.getElementById('demo_0').innerHTML = value;
+        </script>
+
+        <script>
+            document.getElementById('demo_1').innerHTML = "Hello Monty"
+        </script>
+
+    </body>
+
+</html> 
