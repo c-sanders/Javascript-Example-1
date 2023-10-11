@@ -21,14 +21,25 @@ const execFile = util.promisify(require("node:child_process").execFile);
 
 // Define the function : invokeExternalCommand
 
-async function invokeExternalCommand()
+async function invokeExternalCommand(url)
 {
     const commandName = "C:\\Users\\craig\\Documents\\code\\simple\\src\\GUI\ frontend\ for\ yt-dlp.exe";
 
     const waitForExternalCommand = false;
 
 
-    // Invoke the external command and capture its output.
+    if ((url === "") || (url.length === 0))
+    {
+        // A URL value seemingly wasn't passed to this function.
+
+        console.log("A URL seemingly wasn't passed to this function.");
+
+        // Set the value of url to the URL of an arbitrary Youtube video.
+
+        url = "https://www.youtube.com/watch?v=KudGpbfWYrI"
+    }
+
+    // Invoke the external command and optionally capture its output.
     //
     // Prefixing the await keyword onto the front of the execFile function, will
     // cause this script to wait for the execFile function to finish executing
@@ -44,7 +55,7 @@ async function invokeExternalCommand()
     else
     {
         // The external command should probably be run in a separate thread, so
-        // that this script isn't waiting for it to finish.
+        // that this script isn't left idle waiting for it to finish.
 
         const {error, stdout, stderr} = execFile(commandName);
 
@@ -55,4 +66,4 @@ async function invokeExternalCommand()
 
 // Invoke the function that was just defined above.
 
-invokeExternalCommand();
+invokeExternalCommand("");
